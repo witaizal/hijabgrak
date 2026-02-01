@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIJABGRAK</title>
+    <link rel="stylesheet" href="index.css"> <!-- css-->
+</head>
+<body>
+    <?php
+    session_start(); // Mulai session untuk memeriksa login
+    ?>
+
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="gambar/x.png" width="40px" height="25px" alt="Logo HIJABGRAK">
+            HIJABGRAK
+        </div>
+        
+        <nav>
+            <ul class="navbar">
+                <li>Produk
+                    <ul class="submenu">
+                        <li><a href="produk.php">Oursis</a></li>
+                        <li><a href="produk2.php">Kiyowo</a></li>
+                        <li><a href="produk3.php">Aqry Hijab</a></li>
+                        <li><a href="produk4.php">HIJABGRAK</a></li>
+                    </ul>
+                </li>
+                <li>Tentang Kami
+                    <ul class="submenu">
+                        <li><a href="sejarah.php">Sejarah Hijab</a></li>
+                        <li><a href="tim.php">Tim Kami</a></li>
+                        <li><a href="https://www.google.com/maps/place/HIJABGRAK+HQ/@-6.8935581,107.8042487,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68db851642a541:0x900b1feeaf50c0dd!8m2!3d-6.8935581!4d107.8042487!16s%2Fg%2F11fltvb8yn?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D">Lokasi workshop</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdouHOBTGUK8jF7uXMZDFZ_vjl1lDab8pzD3xNTvSnzaAYyAg/viewform?pli=1">Info karir & magang</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSevxR6ETergcOL6W4vxqDTepNGfXddoTGfG4THIfYJzYMmU8Q/viewform?usp=pp_url">Sponsorship</a></li>
+                    </ul>
+                </li>
+                <li>Media Sosial
+                    <ul class="submenu">
+                        <li><a href="https://www.instagram.com/hijabgrak/">instragram</a></li>
+                        <li><a href="https://www.facebook.com/hijabgrak/?locale=id_ID">Facebook</a></li>
+                        <li><a href="https://www.tiktok.com/@hijabgrak.universe">Tiktok</a></li>
+                    </ul>
+                </li>
+                <li>Kontak
+                    <ul class="submenu">
+                        <li><a href="https://api.whatsapp.com/send/?phone=6281284160931&text&type=phone_number&app_absent=0">Whatsapp offline store</a></li>
+                        <li><a href="https://wa.me/6285780819680">Whatsapp</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://shopee.co.id/hijabgrak" class="sale">Toko</a></li>
+                <li>Kunjungan
+                    <ul class="submenu">
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfQ0wqJyA9jT_-vZQlmfhzNzQOzid814s-YTTm4TBAefBNjkg/viewform?usp=send_form">Kunjungan sekolah/Komunitas</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSccAsEjh1jWnvgxdaw-N8NjKtt2bUZhkgVvRBiYDqoQxRv4Aw/viewform?usp=send_form">Kunjungan pelajar/penelitian</a></li>
+                    </ul>
+                </li>
+                <li>Majalah</li>
+            </ul>
+        </nav>
+
+        <!-- NAV-RIGHT: Dinamis berdasarkan status login -->
+        <?php
+        if (isset($_SESSION['username'])) {
+            // Jika sudah login, tampilkan profil dan logout
+            echo '<div class="nav-right">';
+            echo '<input type="text" id="search-input" placeholder="Cari produk atau brand">';
+            echo '<a href="profil.php"><button class="login-btn">' . htmlspecialchars($_SESSION['username']) . '</button></a>';
+            echo '<a href="logout.php"><button class="logout-btn">Logout</button></a>';
+            echo '</div>';
+        } else {
+            // Jika belum login, tampilkan tombol login/register
+            echo '<div class="nav-right">';
+            echo '<input type="text" id="search-input" placeholder="Cari produk atau brand">';
+            echo '<a href="login.php"><button class="login-btn">Login / Register</button></a>';
+            echo '</div>';
+        }
+        ?>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="slides">
+                <img src="gambar/hg.jpg">
+                <img src="gambar/O.png"	>
+                <img src="" alt="Banner Hijab 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND LIST -->
+    <section class="brands">
+        <div class="brand-card">Oursis</div>
+        <div class="brand-card">Kiyowo</div>
+        <div class="brand-card">Hijabgrak</div>
+        <div class="brand-card">Aqry Hijab</div>
+    </section>
+
+    <!-- PRODUK SECTION (Dinamis berdasarkan pencarian) -->
+    <section class="products-section">
+        <h2>Produk Kami</h2>
+        <div class="products-container" id="products-container">
+            <!-- Produk akan dimuat secara dinamis di sini -->
+        </div>
+        <p class="no-results" id="no-results">Tidak ada produk yang ditemukan.</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 HIJABGRAK. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Data produk (simulasi, bisa diganti dengan data dari server)
+        const products = [
+            { name: 'Hijab Oursis Basic', brand: 'Oursis', image: 'gambar/oursis1.jpg', description: 'Hijab berkualitas tinggi dari Oursis.' },
+            { name: 'Hijab Kiyowo Elegan', brand: 'Kiyowo', image: 'gambar/kiyowo1.jpg', description: 'Hijab stylish dari Kiyowo.' },
+            { name: 'Hijab Aqry Premium', brand: 'Aqry Hijab', image: 'gambar/aqry1.jpg', description: 'Hijab premium dari Aqry.' },
+            { name: 'Hijabgrak Original', brand: 'HIJABGRAK', image: 'gambar/hg1.jpg', description: 'Hijab asli dari HIJABGRAK.' },
+            { name: 'Hijab Oursis Sport', brand: 'Oursis', image: 'gambar/oursis2.jpg', description: 'Hijab olahraga dari Oursis.' },
+            { name: 'Hijab Kiyowo Casual', brand: 'Kiyowo', image: 'gambar/kiyowo2.jpg', description: 'Hijab kasual dari Kiyowo.' },
+            // Tambahkan lebih banyak produk sesuai kebutuhan
+        ];
+
+        const searchInput = document.getElementById('search-input');
+        const productsContainer = document.getElementById('products-container');
+        const noResults = document.getElementById('no-results');
+
+        // Fungsi untuk menampilkan produk
+        function displayProducts(filteredProducts) {
+            productsContainer.innerHTML = '';
+            if (filteredProducts.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                    `;
+                    productsContainer.appendChild(productCard);
+                });
+            }
+        }
+
+        // Fungsi pencarian
+        function searchProducts(query) {
+            const filtered = products.filter(product =>
+                product.name.toLowerCase().includes(query.toLowerCase()) ||
+                product.brand.toLowerCase().includes(query.toLowerCase())
+            );
+            displayProducts(filtered);
+        }
+
+        // Event listener untuk input pencarian
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+            if (query === '') {
+                productsContainer.innerHTML = '';
+                noResults.style.display = 'none';
+            } else {
+                searchProducts(query);
+            }
+        });
+
+        // JavaScript untuk Hero Slider (tetap sama)
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slider .slides img');
+
+        function showSlides() {
+            if (slideIndex >= slides.length) slideIndex = 0;
+            
+            const offset = -slideIndex * 100;
+            document.querySelector('.hero-slider .slides').style.transform = `translateX(${offset}%)`;
+            
+            slideIndex++;
+        }
+
+        // Auto slide every 3 seconds
+        setInterval(showSlides, 3000);
+
+        // Initialize
+        showSlides();
+    </script>
+</body>
+</html>

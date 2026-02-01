@@ -1,0 +1,177 @@
+/* RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body {
+    background: linear-gradient(135deg, #f4f4f4 0%, #e9ecef 50%, #dee2e6 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background:linear-gradient(135deg, #333 0%, #555 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar li {
+    cursor: pointer;
+	color:white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #667eea;
+}
+
+/* PRODUCTS SECTION */
+.products-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.products-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.products-section p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.products-section div {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.products-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.products-section p:last-child {
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .navbar ul {
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .products-section {
+        padding: 20px 10px;
+    }
+    
+    .products-section h2 {
+        font-size: 24px;
+    }
+    
+    .products-section p {
+        font-size: 16px;
+    }
+}
+/* SUBMENU (Dropdown) */
+.navbar li:hover .submenu {
+    display: block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(238, 238, 238, 0.5);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.navbar li:hover .submenu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submenu li {
+    margin: 0;
+    border-bottom: 1px solid rgba(240, 240, 240, 0.5);
+	color:white;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu a {
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu a:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}

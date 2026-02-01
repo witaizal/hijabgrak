@@ -1,0 +1,225 @@
+/* RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menggunakan font yang lebih modern */
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #333, #555); /* Gradien yang lebih kompleks dan menarik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    overflow: hidden; /* Mencegah scroll yang tidak perlu */
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat; /* Pola titik halus untuk tekstur */
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    background:  linear-gradient(135deg, #333, #555); /* Semi-transparan untuk efek glassmorphism */
+    backdrop-filter: blur(10px); /* Efek blur untuk modern look */
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: white; /* Warna logo yang sesuai dengan gradien */
+}
+
+.logo img {
+    margin-right: 10px;
+    width: 40px; /* Ukuran ikon yang lebih besar */
+    height: 40px;
+}
+
+/* MAIN CONTENT */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Animasi fade-in untuk masuk */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.forgot-password-container {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparan */
+    backdrop-filter: blur(15px); /* Efek glassmorphism */
+    padding: 50px;
+    border-radius: 16px; /* Sudut lebih bulat */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih dramatis */
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+}
+
+.forgot-password-container:hover {
+    transform: translateY(-5px); /* Efek lift saat hover */
+    box-shadow: #FF8C00; 
+}
+
+.forgot-password-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+    background:linear-gradient(135deg, #333, #555);/* Gradien pada judul */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.forgot-password-container p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.forgot-password-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.forgot-password-container input {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.forgot-password-container input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3); /* Efek glow saat focus */
+    outline: none;
+}
+
+.forgot-password-container button {
+    padding: 15px;
+    background: linear-gradient(135deg, #333, #555);/* Gradien pada button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.forgot-password-container button:hover {
+    background:#FF8C00; /* Gradien hover */
+    transform: translateY(-2px); /* Efek lift */
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.forgot-password-container button:active {
+    transform: translateY(0);
+}
+
+.back-link {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.back-link a {
+    color: linear-gradient(135deg, #333, #555);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(245, 245, 245, 0.9);
+    border-top: 1px solid rgba(238, 238, 238, 0.5);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    color: #666;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .forgot-password-container {
+        padding: 30px;
+        max-width: 90%;
+    }
+    
+    header {
+        padding: 10px 15px;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+    
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+}
+ /* Tambahan styling untuk pesan respons */
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }

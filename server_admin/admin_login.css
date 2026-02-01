@@ -1,0 +1,110 @@
+/* RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body {
+    background:linear-gradient(135deg, #333, #555);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* CONTAINER LOGIN ADMIN */
+.profil-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profil-container h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    background: linear-gradient(135deg, #333, #555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ERROR MESSAGE */
+.profil-container p[style='color:red;'] {
+    color: #ff4500;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* FORM */
+.profil-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profil-container input {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.profil-container input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+    outline: none;
+}
+
+.profil-container input::placeholder {
+    color: #aaa;
+}
+
+/* BUTTON */
+.profil-container button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.profil-container button:hover {
+    background: linear-gradient(135deg, #333, #555);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 480px) {
+    .profil-container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .profil-container h2 {
+        font-size: 24px;
+    }
+
+    .profil-container input,
+    .profil-container button {
+        font-size: 14px;
+    }
+}

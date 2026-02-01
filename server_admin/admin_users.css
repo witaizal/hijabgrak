@@ -1,0 +1,245 @@
+/* admin_users.css */
+
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar li {
+    margin-left: 1rem;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+/* Users section */
+.users-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.users-section h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.users-section p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* Add user form */
+.add-user-form {
+    margin-bottom: 2rem;
+}
+
+.add-user-form h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.add-user-form form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.add-user-form input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.add-user-form button {
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-user-form button:hover {
+    background-color: #218838;
+}
+
+/* Users table */
+.users-table h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+thead {
+    background-color: #f8f9fa;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        margin-top: 1rem;
+    }
+
+    .add-user-form form {
+        flex-direction: column;
+    }
+
+    .add-user-form input {
+        min-width: auto;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+}
+/* SUBMENU (Dropdown) */
+.navbar li:hover .submenu {
+    display: block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(238, 238, 238, 0.5);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.navbar li:hover .submenu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submenu li {
+    margin: 0;
+    border-bottom: 1px solid rgba(240, 240, 240, 0.5);
+	color:white;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu a {
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu a:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
